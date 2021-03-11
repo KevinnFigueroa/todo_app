@@ -1,0 +1,73 @@
+.body {
+
+    /*background: rgb(11, 132, 240);
+    background: linear-gradient(90deg, rgba(11, 132, 240, 1) 44%, rgba(1, 172, 255, 0.7987394787016369) 80%);
+    background: rgb(48, 54, 60);
+    background: linear-gradient(90deg, rgba(48, 54, 60, 1) 44%, rgba(50, 54, 56, 0.7987394787016369) 80%);
+    */
+    background-color: #343743;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.container-banner {
+    margin-top: 60px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.logo {
+    background-color: transparent;
+    width: 30%;
+    height: 70px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.logo i {
+    margin-right: 25px;
+    font-size: 40px;
+    margin-left: 13px;
+}
+
+.logo div {
+    margin-right: 15px;
+}
+
+.text-banner {
+    color: white;
+}
+
+.title-container h1 {
+    color: #54e97f;
+}
+
+.title-container i {
+    margin-left: 10px;
+}
+
+.btn-create-task {
+    height: 60px !important;
+    background-color: #54e97f !important;
+    color: white !important;
+    font-size: 25px !important;
+}
+
+.btn-finish-task {
+    height: 40px !important;
+    background-color: #54e97f !important;
+    color: white !important;
+    font-size: 18px !important;
+}
+
+.btn-delete-task {
+    height: 40px !important;
+    color: white !important;
+    font-size: 18px !important;
+}
+
+.btn-create-task i {
+    font-size: 25px;
+    margin-left: 10px;
+}
