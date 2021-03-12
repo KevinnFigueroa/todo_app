@@ -1,5 +1,18 @@
-let event = document.getElementById("createTask").addEventListener("click",crudTask);
-//let even2 = document.getElementById("staticBackdrop").addEventListener("click")
+let event1 = document.getElementById("createTask").addEventListener("click",crudTask);
+
+function redirectToFinishedTasks(){
+    fetch("http://localhost:5000/redirect_to_finished_tasks",{
+        method:"GET",
+        
+    }
+    ).then(function (response){
+    }).then(function(data){
+        console.log("Respuesta del sv : ",data)
+    }).catch(function(error){
+        console.log("error :"+ error);
+    })
+    }
+
 
 function saveTask(task){
 fetch("http://localhost:5000/save_task",{
@@ -7,7 +20,7 @@ fetch("http://localhost:5000/save_task",{
     body: JSON.stringify(task)
 }
 ).then(function (response){
-    return response.json()
+    document.location.reload();
 }).then(function(data){
     console.log("Respuesta del sv : ",data)
 }).catch(function(error){
@@ -15,16 +28,63 @@ fetch("http://localhost:5000/save_task",{
 })
 }
 
-function deleteTask(){
+function deleteTask(task){
+    console.log(task);
+    fetch("http://localhost:5000/delete_task",{
+    method:"DELETE",
+    body: JSON.stringify(task)
+}
+).then(function (response){
+    document.location.reload();
+}).then(function(data){
+    console.log("Respuesta del sv : ",data)
+}).catch(function(error){
+    console.log("error :"+ error);
+})
 
 }
-function finishTask(){
-
+function finishTask(task){
+    console.log(task);
+    fetch("http://localhost:5000/finish_task",{
+        method:"POST",
+        body: JSON.stringify(task)
+    }
+    ).then(function (response){
+    document.location.reload();
+    }).then(function(data){
+        console.log("Respuesta del sv : ",data)
+    }).catch(function(error){
+        console.log("error :"+ error);
+    })
 }
 
-function editTask(){
-
+function listTask(){
+    fetch("http://localhost:5000/list_tasks",{
+        method:"GET",
+    }
+    ).then(function (response){
+        document.location.reload();
+    }).then(function(data){
+        console.log("Respuesta del sv : ",data)
+    }).catch(function(error){
+        console.log("error :"+ error);
+    })
 }
+
+/*function editTask(){
+    fetch("http://localhost:5000/save_task",{
+        method:"POST",
+        body: JSON.stringify(task)
+    }
+    ).then(function (response){
+        return response.json()
+    }).then(function(data){
+        console.log("Respuesta del sv : ",data)
+    }).catch(function(error){
+        console.log("error :"+ error);
+    })
+}*/
+
 function crudTask(){
    let proyect = document.getElementById("inputProyect").value;
    let title = document.getElementById("inputTitle").value;
@@ -33,9 +93,6 @@ function crudTask(){
    let maxTime = document.getElementById("inputMaxTime").value;
 
    if(proyect == "" || title =="" || task == ""){
-    // FALTA AGREGAR VERIFICACION
-    //$('#staticBackdrop').modal("toggle"); // abrir
-    console.log("asdf")
    }
    let newTask = {
        "proyect" :proyect,
@@ -46,10 +103,5 @@ function crudTask(){
     }
     saveTask(newTask);
     
-    console.log(proyect);
-   console.log(title);
-   console.log(task);
-   console.log(maxDate);
-   console.log(maxTime);
 }
 

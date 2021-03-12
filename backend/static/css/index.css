@@ -47,12 +47,20 @@
     margin-left: 10px;
 }
 
+.btn-finished-tasks {
+    height: 60px !important;
+    background-color: #54e97f !important;
+    color: white !important;
+    font-size: 25px !important;
+}
+
 .btn-create-task {
     height: 60px !important;
     background-color: #54e97f !important;
     color: white !important;
     font-size: 25px !important;
 }
+
 
 .btn-finish-task {
     height: 40px !important;

@@ -66,89 +66,38 @@
                     <h1 class="text-banner">Todo App</h1>
                 </div>
                 <div class="redirectToFinishedTask" style="width: 33%;display: flex;justify-content: end;">
-                    <form action="http://localhost:5000/redirect_to_finished_tasks" method="get">
 
-                        <button type="submit"
-                            style="width: auto;display: flex;align-items: center;background-color: black;color: white;font-weight: bold;justify-content: center;"
-                            class="btn-finished-tasks btn"><span>Tareas
-                                finalizadas</span>
-                            <span><i style="font-size: 25px;" class="fas fa-arrow-right"></i></span></button>
-                    </form>
+
                 </div>
             </div>
-
-
 
         </div>
 
-        <div class="row mt-5">
-            <div class="col-6">
+        <div class="row justify-content-center mt-5">
+
+            <div class="col-12">
                 <div class="row title-container">
-                    <h1>Nueva tarea <span><i class="fas fa-plus"></i></span></h1>
-                </div>
-
-                <div class="container-form-create-task mt-1">
-                    <div class="form-floating mb-3">
-                        <input type="text" class="form-control" id="inputProyect" placeholder="Proyecto" required>
-                        <label for="floatingInput">Proyecto</label>
-                    </div>
-                    <div class="form-floating mb-3">
-                        <input type="text" class="form-control" id="inputTitle" placeholder="Título" required>
-                        <label for="floatingInput">Título</label>
-                    </div>
-                    <div class="form-floating mb-3">
-                        <input type="text" class="form-control" id="inputTask" placeholder="Tarea" required>
-                        <label for="floatingInput">Tarea</label>
-                    </div>
-                    <div class="form-floating mb-3">
-                        <input type="date" class="form-control" id="inputMaxDate" value="" placeholder="Maxima fecha">
-
-                        <label for="floatingInput">Fecha máxima para finalizar</label>
-                    </div>
-                    <div class="form-floating mb-3">
-                        <input type="time" class="form-control" id="inputMaxTime" value="12:00"
-                            placeholder="Maxima hora">
-
-                        <label for="floatingInput">Hora máxima para finalizar</label>
-                    </div>
-
-                    <div class="row px-2">
-                        <button id="createTask" type="button" class="btn-create-task btn"><span>Crear tarea</span>
-                            <span><i class="fas fa-check-circle"></i></span></button>
-                    </div>
-                </div>
-
-            </div>
-            <div class="col-6">
-                <div class="row title-container">
-                    <h1>Lista de tareas <span><i class="fas fa-th-list"></i></span></h1>
+                    <h1>Tareas finalizadas <span><i class="fas fa-th-list"></i></span></h1>
 
                 </div>
                 <div class="container-form-list-tasks mt-1">
                     <div class="list-group">
-                        {% for task in list_tasks %}
+                        {% for task in list_tasks_finalizated %}
+
                         <a href="#" style="margin-bottom: 15px;" class="list-group-item list-group-item-action active"
                             aria-current="true">
                             <div class="d-flex w-100 justify-content-between">
                                 <h5 class="mb-1">{{task.proyect}}</h5>
-                                <small>faltan 3 días</small>
                             </div>
-                            <p class="mb-1">{{task.title}}.</p>
-                            <small>{{task.task}}.</small>
-                            <div class="row justify-content-end mt-3">
-                                <div class="col-3">
 
-                                    <button onclick="deleteTask({{ task }})" type="button"
-                                        class="btn-delete-task btn btn-danger"><span>Eliminar</span>
-                                        <span><i class="fas fa-trash-alt"></i></span></button>
-                                </div>
-                                <div class="col-3">
-                                    <button onclick="finishTask({{ task }})" type="button"
-                                        class="btn-finish-task btn"><span>Finalizar</span>
-                                        <span><i class="fas fa-check-circle"></i></span></button>
-                                </div>
+                            <p class="mb-1">{{task.title}}.</p>
+                            <div style="display: flex;justify-content: space-between;align-items: center;">
+                                <small>{{task.task}}.</small>
                             </div>
+
                         </a>
+
+
                         {% endfor %}
 
                     </div>
@@ -158,8 +107,6 @@
         </div>
     </div>
 
-    <!-- ARCHIVO JS LOCAL -->
-    <script src="./static/js/index.js"></script>
 
 </body>
 
